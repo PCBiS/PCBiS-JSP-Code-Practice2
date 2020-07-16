@@ -1,0 +1,68 @@
+package member.service;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Collections;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import jdbc.ConnectionProvider;
+import member.dao.MemberDao;
+import model.Member;
+import model.MemberListView;
+import service.Service;
+
+public class MemberListViewServiceImpl implements Service {
+	
+	private final int VIEW_MEMBER_PAGE_PER_COUNT = 3;
+	
+	@Override
+	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
+		List<Member> memberList = null;
+		MemberDao dao = MemberDao.getInstance();
+		
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			int memberTotalCnt = dao.cntTotalMembers(conn, request);
+			int pageNum = 1, startRow = 0, endRow = 0, totalCount = 0;
+			String currentPage = request.getParameter("pageNum");
+			
+			if (memberTotalCnt > 0) {
+				if (currentPage != null) {
+					try {
+						startRow = (Integer.parseInt(currentPage) - 1) * VIEW_MEMBER_PAGE_PER_COUNT + 1;
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+					
+				}
+				
+				endRow = startRow + VIEW_MEMBER_PAGE_PER_COUNT -1;
+				totalCount = memberTotalCnt / VIEW_MEMBER_PAGE_PER_COUNT + 1;
+			}else {
+				pageNum = 0;
+				memberList = Collections.emptyList();
+			}
+			
+			MemberListView memberListView = 
+			new MemberListView(memberTotalCnt, 
+							   totalCount, 
+							   pageNum, 
+							   VIEW_MEMBER_PAGE_PER_COUNT, 
+							   startRow, 
+							   endRow, 
+							   memberList);
+			
+			memberList = dao.getMemberList(conn, memberListView);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("memberList", memberList);
+		return "/WEB-INF/views/member/memberListView.jsp";
+	}
+
+}

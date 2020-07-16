@@ -1,0 +1,5 @@
+#Command Properties List
+/
+/index=service.IndexServiceImpl
+/greeting
+/index

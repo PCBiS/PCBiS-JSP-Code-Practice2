@@ -1,0 +1,15 @@
+package service;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public interface service {
+	
+	// 멤버 메소드가 모두 추상메소드이다.
+	// 멤버 변수는 모두 상수이다.
+	// view page 반환 메소드 : 사용자 요청의 핵심처리도 이곳에서 한다.
+	// request 속성에 데이터 저장.
+	
+	public abstract String getViewPage(HttpServletRequest request, HttpServletResponse response);
+	
+}

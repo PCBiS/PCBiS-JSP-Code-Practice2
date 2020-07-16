@@ -1,0 +1,20 @@
+package dao;
+
+import java.sql.Connection;
+
+import model.Member;
+
+public class MemberDao {
+	private MemberDao() {}
+	private static MemberDao instance = new MemberDao();
+	public static MemberDao getInstance() {
+		return instance;
+	}
+	
+	public int insertMember(Connection conn, Member member) {
+		int resultCnt = 0;
+		
+		return resultCnt;
+	}
+	
+}

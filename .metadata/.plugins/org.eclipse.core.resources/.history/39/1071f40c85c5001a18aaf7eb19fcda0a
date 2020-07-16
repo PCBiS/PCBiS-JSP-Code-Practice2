@@ -1,0 +1,66 @@
+package member.model;
+
+import java.sql.Date;
+
+public class Member {
+	private int idx;
+	private String uid;
+	private String upw;
+	private String uname;
+	private String uphoto;
+	private Date regdate;
+	
+	public Member(int idx, String uid, String upw, String uname, String uphoto) {
+		this.idx = idx;
+		this.uid = uid;
+		this.upw = upw;
+		this.uname = uname;
+		this.uphoto = uphoto;
+	}
+	
+	public String getUid() {
+		return uid;
+	}
+
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
+
+
+	public String getUid() {
+		return uid;
+	}
+
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
+
+	public String getUpw() {
+		return upw;
+	}
+
+	public void setUpw(String upw) {
+		this.upw = upw;
+	}
+
+	public String getUname() {
+		return uname;
+	}
+
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+
+	public String getUphoto() {
+		return uphoto;
+	}
+
+	public void setUphoto(String uphoto) {
+		this.uphoto = uphoto;
+	}
+
+	@Override
+	public String toString() {
+		return "Member [uid=" + uid + ", upw=" + upw + ", uname=" + uname + ", uphoto=" + uphoto + "]";
+	}
+}

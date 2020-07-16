@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style></style>
+</head>
+<body>
+	
+</body>
+<script>
+	$(document).ready(function() {
+		/* 
+		$.getJSON('data_json.jsp',function(data){
+			$.each(data,function(key, value){
+				$('body').append('<h1>제품: ' + value.name + ' 가격 : ' + value.price + '</h1>');
+			});
+		}); 
+		*/
+		
+		$.ajax({
+			url : 'data.xml',
+			success : function(data) {
+				$(data).find('product').each(function() {
+					var name = $(this).find('name').text();
+					var price = $(this).find('price').text();
+				});
+			}
+		});
+		
+	});
+</script>
+</html>

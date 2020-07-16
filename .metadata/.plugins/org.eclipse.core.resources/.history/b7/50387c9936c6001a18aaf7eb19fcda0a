@@ -1,0 +1,18 @@
+package service;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import dao.MemberDao;
+
+public class IdCheckService implements Service {
+	
+	MemberDao dao;
+	
+	@Override
+	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
+		
+		return null;
+	}
+
+}

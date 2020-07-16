@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	/* 
+	$(document).ready(function() {
+		setInterval(function() {
+			$.ajax('data.jsp',{
+				success : function(data) {
+					$('body').html(data);
+				}
+			})
+		},1000);
+	}); */
+	
+	$.ajax({
+		url : 'idCheck.jsp',
+		success : function(data) {
+			$('body').append(data);
+		}
+	})
+</script>
+</html>

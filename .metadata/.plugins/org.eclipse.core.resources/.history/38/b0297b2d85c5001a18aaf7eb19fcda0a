@@ -1,0 +1,14 @@
+package member.model;
+
+import java.sql.Date;
+
+public class Member {
+	private int idx;
+	private String uid;
+	private String upw;
+	private String uname;
+	private String uphoto;
+	private Date regdate;
+	
+	
+}

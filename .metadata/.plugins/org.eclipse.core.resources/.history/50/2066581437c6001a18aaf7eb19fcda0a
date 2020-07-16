@@ -1,0 +1,27 @@
+package service;
+
+import java.sql.Connection;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import dao.MemberDao;
+import jdbc.ConnectionProvider;
+
+public class IdCheckService implements Service {
+	
+	MemberDao dao;
+	
+	@Override
+	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
+		String result = "N";
+		String id = request.getParameter("uid");
+		Connection conn = null;
+		
+		conn = ConnectionProvider.getConnection();
+		int resultCnt = dao.selectById(conn, request);
+		
+		return "/WEB-INF/views/member/id_check.jsp";
+	}
+
+}

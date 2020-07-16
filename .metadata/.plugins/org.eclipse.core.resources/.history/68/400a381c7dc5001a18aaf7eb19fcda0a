@@ -1,0 +1,27 @@
+웹 프로그래밍
+
+1. DB생성 -> 테이블 생성
+2. 웹 프로젝트 생성
+3. 프로젝트에 필요 한 라이브러리 추가
+	- JDBC
+	- Connection Pool
+	- 파일 업로드
+	- JSTL
+
+4. MVC패턴 구현
+	- Front Controller
+	- Command Pattern -> Service Interface
+	- DAO Pattern -> DAO Class
+	- View JSP -> EL, JSTL
+
+5. DBCP Pool 등록 Servlet
+
+-> 서버 Start
+----------------------------------------------------
+각 기능 추가
+
+1. 사용자의 요청을 처리 할 핵심 로직구현 클래스.
+	- Service Interface를 구현 한 Class
+2. DAO에 기능들을 추가
+3. View 생성 -> JSP
+4. 설정파일에 

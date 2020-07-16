@@ -1,0 +1,18 @@
+package service;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class GreetingServiceImpl implements service {
+
+	@Override
+	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
+		// viewPage
+		String viewPage = "/WEB-INF/views/view01.jsp";
+		// 응답 해 줄 데이터 처리.
+		
+		
+		return null;
+	}
+
+}

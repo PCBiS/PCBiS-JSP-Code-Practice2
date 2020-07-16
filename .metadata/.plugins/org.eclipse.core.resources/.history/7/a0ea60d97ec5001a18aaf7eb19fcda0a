@@ -1,0 +1,7 @@
+#Command Properties
+#URI=Class Full Name (do not indent!)
+#
+#Index Page
+/index.do=board.service.IndexServiceImpl
+#Member Register Page
+/member/memberRegForm.do=member.service.MemberRegService

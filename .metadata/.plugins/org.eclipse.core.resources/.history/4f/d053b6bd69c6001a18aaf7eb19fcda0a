@@ -1,0 +1,46 @@
+package member.service;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import jdbc.ConnectionProvider;
+import member.dao.MemberDao;
+import model.Member;
+import service.Service;
+
+public class MemberListViewServiceImpl implements Service {
+	
+	private MemberListViewServiceImpl() {}
+	private static MemberListViewServiceImpl instance = new MemberListViewServiceImpl();
+	public static MemberListViewServiceImpl getInstance() {
+		return instance;
+	}
+	
+	private final int VIEW_MEMBER_PAGE_PER_COUNT = 3;
+	
+	@Override
+	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
+		List<Member> memberList = null;
+		MemberDao dao = MemberDao.getInstance();
+		Connection conn = null;
+		int memberTotalCnt = 0;
+		int pageNum = request.getParameter("pageNum");
+		
+		
+		try {
+			conn = ConnectionProvider.getConnection();
+			memberTotalCnt = dao.cntTotalMembers(conn, request);
+			memberList = dao.getMemberList(conn, endRow , VIEW_MEMBER_PAGE_PER_COUNT);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("memberList", memberList);
+		return "/WEB-INF/views/member/memberListView.jsp";
+	}
+
+}

@@ -1,0 +1,43 @@
+package controller;
+
+import java.io.IOException;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class SimpleController extends HttpServlet {
+
+	// 1. HTTP의 요청을 받는다.
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		processRequest(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		processRequest(req, resp);
+	}
+
+	private void processRequest(
+			HttpServletRequest request, 
+			HttpServletResponse response) {
+		//request.getParameter(name);
+		//request.getRequestURL(); 
+		//request.getRequestURI(); <----- 사용자 요청은 주로 이걸로 받게 됨 
+		String type = request.getParameter("type");
+		// 3. 핵심 처리 : 기능 수행.
+		Object resultObj = null;
+		if(type.equals("greeting") || type == null ) {
+			resultObj = "안녕하세요";
+		}else if (type.equals("date")) {
+			resultObj = new Date();
+		}else {
+			resultObj = "invalid Type";
+		}
+	}
+
+	
+}

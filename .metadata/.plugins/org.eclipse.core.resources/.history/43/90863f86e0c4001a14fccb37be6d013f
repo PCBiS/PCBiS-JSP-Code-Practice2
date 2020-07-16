@@ -1,0 +1,4 @@
+#Command Properties
+#URI=Class Full Name (do not indent!)
+/=board.service.IndexServiceImpl
+/index=board.service.IndexServiceImpl

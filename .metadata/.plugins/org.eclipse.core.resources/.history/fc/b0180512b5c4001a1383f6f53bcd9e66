@@ -1,0 +1,33 @@
+package controller;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class SimpleController extends HttpServlet {
+
+	// 1. HTTP의 요청을 받는다.
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		processRequest(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		processRequest(req, resp);
+	}
+
+	private void processRequest(
+			HttpServletRequest request, 
+			HttpServletResponse response) {
+		//request.getParameter(name);
+		//request.getRequestURL(); 
+		//request.getRequestURI();
+		
+	}
+
+	
+}

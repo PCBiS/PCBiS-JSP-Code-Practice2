@@ -1,0 +1,50 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원목록 보기</title>
+</head>
+<body>
+	<h1>회원목록 조회하기.</h1>
+	<hr>
+	<c:if test="${memberList eq null}">
+		<h3>회원 정보가 존재하지 않습니다, 혹은 정보를 가져오는데 실패하였습니다.</h3>
+	</c:if>
+	<c:if test="${memberList ne null}">
+		<table>
+			<c:forEach items="${memberList}" var="mList">
+				<tr>
+					<td>index</td>
+					<td>${mList.idx}</td>
+				</tr>
+				<tr>
+					<td>ID</td>
+					<td>${mList.uid}</td>
+				</tr>
+				<tr>
+					<td>PW</td>
+					<td>${mList.upw}</td>
+				</tr>
+				<tr>
+					<td>Name</td>
+					<td>${mList.uname}</td>
+				</tr>
+				<tr>
+					<td>Photo</td>
+					<td><img src="<c:url value="${mList.uphoto}"/>"></img></td>
+				</tr>
+				<tr>
+					<td>Registry Date</td>
+					<td>${mList.regdate}</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<c:forEach begin="1" end="${ }" var="num" >
+			<a href="memberListView.do?pNum="></a>
+		</c:forEach>
+	</c:if>
+</body>
+</html>

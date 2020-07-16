@@ -1,0 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>    
+<%
+int pageNum = 1;   // list.jsp?page=9
+String pageNumber = request.getParameter("page");
+if(pageNumber != null) {
+	pageNum = Integer.parseInt(pageNumber);
+}
+%>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>FrontController</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+    
+  <!-- 컨트롤러 / FrontController -->
+  <servlet>
+  	<servlet-name>FrontController</servlet-name>
+  	<servlet-class>board.controller.FrontController</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>FrontController</servlet-name>
+  	<url-pattern>/</url-pattern>
+  </servlet-mapping>
+  
+  <!-- DB Connector -->
+  <servlet>
+  	<servlet-name>DBCPInit</servlet-name>
+  	<servlet-class>jdbc.DBCPInit</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <!-- Filter List -->
+  
+  <filter>
+  	<filter-name>LoginCheckFilter</filter-name>
+  	<filter-class>board.filter.LoginFilter</filter-class>
+  </filter>
+  
+  <filter>
+  	<filter-name>CharterFilter</filter-name>
+  	<filter-class>board.filter.CharaterEncodingFilter</filter-class>
+  </filter>
+  
+  <!-- 파일 업로드 경로 지정 -->
+  <context-param>
+  	<param-name>userPhotoPath</param-name>
+  	<param-value>/upload/user</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>uploadFilePath</param-name>
+  	<param-value>/upload/file</param-value>
+  </context-param>
+</web-app>

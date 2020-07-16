@@ -1,0 +1,10 @@
+package service;
+
+public interface service {
+	
+	// 멤버 메소드가 모두 추상메소드이다.
+	// 멤버 변수는 모두 상수이다.
+	
+	
+	
+}

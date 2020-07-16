@@ -1,0 +1,10 @@
+package member.dao;
+
+public class MemberDao {
+	public MemberDao() {}
+	private static MemberDao instance = new MemberDao();
+	private static MemberDao getInstance() {
+		return instance;
+	}
+	
+}

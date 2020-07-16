@@ -1,0 +1,77 @@
+package member.service;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Collections;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import jdbc.ConnectionProvider;
+import member.dao.MemberDao;
+import model.Member;
+import model.MemberListView;
+import service.Service;
+
+public class MemberListViewServiceImpl implements Service {
+	
+	private final int VIEW_MEMBER_PAGE_PER_COUNT = 3;
+	
+	@Override
+	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
+		List<Member> memberList = null;
+		MemberDao dao = MemberDao.getInstance();
+		MemberListView memberListView = null;
+		
+		try {
+			Connection conn = ConnectionProvider.getConnection();
+			int memberTotalCnt = dao.cntTotalMembers(conn, request);
+			int pageNum = 0, startRow = 0, endRow = 0, totalCount = 0;
+			String getPnum = request.getParameter("pNum");
+			
+			if (memberTotalCnt > 0) {
+				if (pNum != null) {
+					try {
+						startRow = (Integer.parseInt(currentPage) - 1) * VIEW_MEMBER_PAGE_PER_COUNT + 1;
+					} catch (Exception e) {
+						// TODO: handle exception
+					}	
+				}else {
+					startRow = (pageNum - 1) * VIEW_MEMBER_PAGE_PER_COUNT + 1;
+				}
+				endRow = startRow + VIEW_MEMBER_PAGE_PER_COUNT -1;
+				totalCount = memberTotalCnt / VIEW_MEMBER_PAGE_PER_COUNT + 1;
+			}else {
+				pageNum = 0;
+				memberList = Collections.emptyList();
+			}
+			
+			memberListView = new MemberListView(memberTotalCnt, 
+												totalCount, 
+												pageNum, 
+												VIEW_MEMBER_PAGE_PER_COUNT, 
+												startRow, 
+												endRow, 
+												memberList);
+			/*
+			 * memberToatalCnt : 회원 총 숫자. 
+			 * totalCount : 총 페이징 숫자.
+			 * pageNum : 현재 보고 있는 페이지.
+			 * VIEW... : 페이징 단위
+			 * startRow : 불러올 글의 시작지점.
+			 * endRow : 불러온 글의 종료지점
+			 * memberList 가지고 있는 배열정보(회원정보)
+			 */
+			memberList = dao.getMemberList(conn, memberListView);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("memberList", memberList);
+		request.setAttribute("viewPageList", memberListView);
+		return "/WEB-INF/views/member/memberListView.jsp";
+	}
+
+}

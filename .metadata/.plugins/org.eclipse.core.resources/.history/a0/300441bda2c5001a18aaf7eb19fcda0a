@@ -1,0 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+	String uid = request.getParameter("uid");
+	if(uid != null && uid.equals(anObject)){
+		out.print("아이디는 사용 불가 합니다.");
+	}
+%>

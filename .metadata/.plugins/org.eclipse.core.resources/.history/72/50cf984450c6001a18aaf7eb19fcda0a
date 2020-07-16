@@ -1,0 +1,60 @@
+package model;
+
+import java.util.List;
+
+public class MemberListView {
+	// 전체 회원의 수.
+	private int mTotalCount;
+	// 전체 페이지 수.(공식에 의하여 계산이 될)
+	private int totalCount;
+	// 현재 페이지 번호.
+	private int currPageNum;
+	// 페이지 당 보여 줄 멤버숫자(MemberListViewService 로 부터 받아올 상수) 
+	private int mPagePerCount;
+	// 페이지의 시작 행
+	private int startRow;
+	// 페이지의 끝 행
+	private int endRow;
+	// 회원 리스트(회원의 정보)
+	private List<Member> memberList;
+	
+	// 생성자.
+	public MemberListView(int mTotalCount, int totalCount, int currPageNum, int mPagePerCount, int startRow, int endRow,
+			List<Member> memberList) {
+		this.mTotalCount = mTotalCount;
+		this.totalCount = totalCount;
+		this.currPageNum = currPageNum;
+		this.mPagePerCount = mPagePerCount;
+		this.startRow = startRow;
+		this.endRow = endRow;
+		this.memberList = memberList;
+		calTotalPerCount();
+	}
+	
+	/*
+	 * 페이지 카운팅 공식.
+	 * 전체 페이지 수 = 전체 회원의 수 / 페이지 당 보여줄 멤버의 수(상수)
+	 * 만약 전체회원의 수를 페이지당 보여줄 멤버의 수로 나누어서 남은 몪이 0이라면 전체 페이지 수에 +1을 더해주도록 한다.
+	 */
+	
+	private void calTotalPerCount() {
+		if (mTotalCount == 0) {
+			// 여기에 걸리면 회원의 숫자는 0명이라는 의미임으로
+			totalCount = 0;
+			// 페이징 처리를 할 의미가 없어진다.
+		}else {
+			// 1명 이상이 존재한다면 : 전체 회원 수 / 페이지당 보여줄 멤버의 수(상수)를 계산한다.
+			totalCount = mTotalCount / mPagePerCount;
+			if (mTotalCount % mPagePerCount > 0) {
+				// 총 인원수를 페이지 당 보여줄 멤버의 수(상수)로 나눈 나머지가 0보다 
+				// 큰 경우는 '페이지'라는 그릇이 추가로 하나 더 필요한 상태가 된다.
+				totalCount++;
+				// 그럼으로 공식에서 계산된 총 페이지수 + 1을 해준다.
+			}
+			
+		}
+		
+		
+	}
+
+}

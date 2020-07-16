@@ -1,0 +1,25 @@
+package member.service;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import member.dao.MemberDao;
+import model.Member;
+import model.MemberListView;
+import service.Service;
+
+public class MemberListViewServiceImpl implements Service {
+	
+	MemberDao dao;
+	Member member;
+	MemberListView view;
+	private final int VIEW_MEMBER_PAGE_PER_COUNT = 3;
+	
+	@Override
+	public String getViewPage(HttpServletRequest request, HttpServletResponse response) {
+		dao.viewMember();
+		
+		return "/WEB-INF/views/member/memberList.jsp";
+	}
+
+}
