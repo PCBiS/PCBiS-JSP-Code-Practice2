@@ -1,0 +1,7 @@
+package member.service;
+
+import service.Service;
+
+public class WithdrawMember implements Service {
+
+}

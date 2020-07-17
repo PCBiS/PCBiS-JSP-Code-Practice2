@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>OpenProject</title>
+<script type="text/css" src="<c:url value="css/default.css"/>"></script>
+<script type="text/javascript" src="<c:url value="js/default.js"/>"></script>
+</head>
+<body>
+<%@include file="/WEB-INF/views/include/header.jsp" %>
+<h1>Index Page</h1>
+<hr>
+<form action="">
+	
+	<div>
+		${dowithrawmember.uname}님을 탈퇴 처리 하시겠습니까?
+	</div>
+	<div>
+	
+	</div>
+</form>
+<%@include file="/WEB-INF/views/include/footer.jsp" %>
+</body>
+</html>

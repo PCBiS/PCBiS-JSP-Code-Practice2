@@ -1,0 +1,17 @@
+# Command Properties
+# URI=Class Full Name (do not indent!)
+#
+# Index Page
+/index.do=service.IndexServiceImpl
+# Member Register Page
+/member/memberRegForm.do=member.service.MemberRegServiceImpl
+# Member Register Service
+/member/memberReg.do=member.service.MemberRegFormServiceImpl
+# Member Register ID Check Service
+/member/id_check.do=member.service.IdCheckServiceImpl
+# MemberList Viewer
+/member/memberListView.do=member.service.MemberListViewServiceImpl
+# Member Withdraw
+/member/memberWithdraw.do=member.service.WithdrawMemberServiceImpl
+# Member Infomation Modify
+/member/memberInfoModify.do=member.service.ModifyMemberServiceImpl

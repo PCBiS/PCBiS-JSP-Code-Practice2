@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원 탈퇴 기능(관리자)</title>
 </head>
 <body>
-${manageIdx }
-${function }
+	${dowithrawmember.uname}님을 탈퇴 처리 하시겠습니까?
+	
 </body>
 </html>

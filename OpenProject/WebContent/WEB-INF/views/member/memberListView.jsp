@@ -34,9 +34,9 @@
 						<td>${mList.regdate}</td>
 						<td><img src="<c:url value="${mList.uphoto}"/>" width="100px" height="75px" ></img></td>
 						<td>
-							<a href="memberManager.do?manageIdx=${mList.idx}?func=modify">회원정보 수정</a>
+							<a href="memberInfoModify.do?manageIdx=${mList.idx}">회원정보 수정</a>
 							<br>
-							<a href="memberManager.do?manageIdx=${mList.idx}?func=delete">회원 탈퇴</a>
+							<a href="memberWithdraw.do?manageIdx=${mList.idx}">회원 탈퇴</a>
 						</td>
 					</tr>					
 				</c:forEach>

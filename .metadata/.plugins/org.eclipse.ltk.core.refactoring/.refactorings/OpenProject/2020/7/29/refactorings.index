@@ -41,3 +41,13 @@
 1594800075088	Copy file
 1594800844161	Delete element
 1594800854156	Delete element
+1594887827996	Move 'css' to 'WEB-INF'
+1594887831014	Move 'js' to 'WEB-INF'
+1594887834633	Move 'images' to 'WEB-INF'
+1594888093003	Delete element
+1594888106058	Move 'css' to 'WebContent'
+1594888108216	Move 'js' to 'WebContent'
+1594890994942	Delete element
+1594891010347	Copy compilation unit
+1594892871723	Delete element
+1594894396799	Copy file
