@@ -1,9 +1,3 @@
 INDEX VERSION 1.4+/Users/ksla/Documents/Github/PCBiS-JSP-Code-Practice2/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
 2654925864.index
-2408972323.index
-455665521.index
-1021193841.index
-1021193841.index
 209627705.index
-2374375542.index
-277850490.index

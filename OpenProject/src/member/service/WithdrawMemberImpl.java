@@ -18,11 +18,11 @@ public class WithdrawMemberImpl implements Service {
 		MemberDao dao = MemberDao.getInstance();
 		Member getMember = null;
 		Connection conn = null;
-		int manageIdx = Integer.parseInt(request.getParameter("manageIdx"));
+		int getIdx = Integer.parseInt(request.getParameter("manageIdx"));
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			getMember = dao.getMemberInfo(conn, manageIdx);
+			getMember = dao.getMemberInfo(conn, getIdx);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

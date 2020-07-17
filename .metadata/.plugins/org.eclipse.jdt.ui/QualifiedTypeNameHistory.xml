@@ -24,4 +24,8 @@
 <fullyQualifiedTypeName name="board.service.Service"/>
 <fullyQualifiedTypeName name="board.service.NullServiceImpl"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="model.Member"/>
+<fullyQualifiedTypeName name="member.dao.MemberDao"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="jdbc.ConnectionProvider"/>
 </qualifiedTypeNameHistroy>
